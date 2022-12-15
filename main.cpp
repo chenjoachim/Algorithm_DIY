@@ -19,7 +19,7 @@ void BFS(int s,queue<int>& Q, Plate& P){
 		for(i=0;i<3;i++)
 		{
 			for(j=0;j<3;j++){
-				
+				//include the part below if a tap can flip in 4 directions (and itself)
 				P.tap_cross(i,j);
 				tmp=P.getID();
 				if(!checker[tmp]){
@@ -29,7 +29,7 @@ void BFS(int s,queue<int>& Q, Plate& P){
 					checker[tmp]++;
 				}
 				P.setPlate(next);
-				
+				//include the part below if a tap can flip in 8 directions (and itself)
 				P.tap_circle(i,j);
 				tmp=P.getID();
 				if(!checker[tmp]){
