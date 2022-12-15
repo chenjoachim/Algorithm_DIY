@@ -88,7 +88,6 @@ void Plate::tap_cross(int x,int y){
 		for(j=0;j<width;j++)
 		{
 			id+=light[i][j]*(Power2(width*i+j));
-			//cout << light[i][j]*(Power2(3*i+j)) << " ";
 		}
 	}                                  
 }
@@ -109,7 +108,6 @@ void Plate::tap_circle(int x,int y){
 		for(j=0;j<width;j++)
 		{
 			id+=light[i][j]*(Power2(width*i+j));
-			//cout << light[i][j]*(Power2(3*i+j)) << " ";
 		}
 	}
 }

@@ -14,7 +14,7 @@ void BFS(int s,queue<int>& Q, Plate& P){
 		next=Q.front();
 		Q.pop();
 		Used[next]=true;
-		//if(next==0)break;
+		//if(next==0)break;... only used to check shortest path from one source
 		P.setPlate(next);
 		for(i=0;i<3;i++)
 		{
@@ -63,43 +63,11 @@ int main()
 	id=plate.getID();
 	Dis[id]=0;
 	Used[id]=true;
-	checker[id]=true;
+	checker[id]=1;
 	int tmp;
-	/*
-	for(int i=0;i<3;i++)
-	{
-		for(int j=0;j<3;j++){
-			plate.tap_cross(i,j);
-			tmp=plate.getID();
-			plate.printPlate();
-			cout << tmp << endl;
-			plate.setPlate(id);
-			plate.tap_circle(i,j);
-			tmp=plate.getID();
-			plate.printPlate();
-			cout << tmp << endl;
-			plate.setPlate(id);
-			
-		}
-	}
-	*/
-	
 	BFS(id,Q,plate);
 	for(int i=0;i<512;i++)
 	{
 		cout << Dis[i] << ", ";
-		if(checker[i]>=2)cout << "Fail for " << i << endl;
 	}
-	/*
-	id=434;
-	plate.setPlate(id);
-	plate.printPlate();
-	while(Pred[id]!=id)
-	{
-		cout << Pred[id];
-		plate.setPlate(Pred[id]);
-		id=plate.getID();
-		plate.printPlate();
-	}
-	*/
 }
